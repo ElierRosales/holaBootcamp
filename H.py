@@ -4,17 +4,13 @@ Entradas:
 num= numero entre 1 y 100000. 
 
 '''
-def sum_digitos(num):
-    if 1 <= num <= 100000:
-        return sum(int(digito) for digito in str(num))
-    else:
-        return 0
-
 def main():
     try:
-        print("Ingresa un número entre 1 y 100000:")
-        num = int(input().strip())
-        print(sum_digitos(num))
+        numero = int(input().strip())
+        if 1 <= numero <= 100000:
+            print(sum(int(digito) for digito in str(numero)))
+        else:
+            print(0)
     except ValueError:
         print(0)
 
