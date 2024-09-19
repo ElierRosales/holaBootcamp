@@ -11,20 +11,20 @@ def calcular_puntaje(word):
         if char.isdigit():
             score += int(char)
         elif char.islower():
-            # Definir puntaje para letras minusculas
+            # Puntaje para letras minúsculas: a=10, b=11, ..., z=35
             score += 10 + ord(char) - ord('a')
         elif char.isupper():
-            # Definir puntaje para letras mayusculas
+            # Puntaje para letras mayúsculas: A=20, B=22, ..., Z=70
             score += 2 * (10 + ord(char.lower()) - ord('a'))
     return score
 
 def main():
     import sys
     input = sys.stdin.read
-    data = input().splitlines()
+    data = input().strip().split("\n")
     
+    # Asegurarse de que se reciban exactamente dos líneas de entrada
     if len(data) != 2:
-        print("Error: se esperaban exactamente dos líneas de entrada.")
         return
     
     # Leer las palabras
@@ -33,14 +33,13 @@ def main():
     
     # Verificar que las palabras estén dentro del rango de longitud
     if not (1 <= len(ana_word) <= 100) or not (1 <= len(carolina_word) <= 100):
-        print("Error: las longitudes de las palabras deben estar entre 1 y 100.")
         return
 
     # Calcular los puntajes
-    ana_score = calculate_score(ana_word)
-    carolina_score = calculate_score(carolina_word)
+    ana_score = calcular_puntaje(ana_word)
+    carolina_score = calcular_puntaje(carolina_word)
     
-    # Determinar quien gano
+    # Determinar quién ganó y mostrar el resultado
     if ana_score > carolina_score:
         print(f"Ana {ana_score}")
     else:
