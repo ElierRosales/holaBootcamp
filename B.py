@@ -1,3 +1,10 @@
+'''@author: Juan Elier Rosales Rosas
+Descripción: Programa que calcula la cantidad de pasos que se deben dar para salir de un laberinto numerico.
+Entradas:
+2 enteros N y M (1 <= N, M <= 50) que representan el tamaño del laberinto.
+2 enteros x0 y y0 (1 <= x0 <= N, 1 <= y0 <= M) que representan la posición inicial.
+N filas con M enteros cada una (0 <= labi,j <= 15) que representan el laberinto.
+'''
 from collections import deque
 
 def main():
